@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node ./bin/card.js",
+    "publish": "npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard"
   },
