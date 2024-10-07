@@ -1,26 +1,35 @@
 {
-  "name": "ricardogouveia3",
-  "version": "2.0.0",
-  "description": "A personal card for Ricardo Gouveia (@ricardogouveia3)",
+  "name": "rcrd",
+  "version": "3.0.0",
+  "description": "A personal CLI card for Ricardo Gouveia",
   "main": "index.js",
   "bin": {
     "bitandbang": "./bin/card.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ricardogouveia3/npm-card.git"
+    "url": "https://github.com/ricardogouveia3/npx-rcrd.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/card.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
   },
-  "keywords": [],
-  "author": "Ricardo Gouveia <contato@rcrd.me> (https://rcrd.me)",
+  "type": "module",
+  "keywords": [
+    "npm",
+    "cli",
+    "card",
+    "npx",
+    "personal"
+  ],
+  "author": "Ricardo Gouveia <me@rcrd.dev> (https://rcrd.dev)",
   "license": "MIT",
   "dependencies": {
-    "boxen": "^2.1.0",
-    "chalk": "^2.4.1"
+    "boxen": "^8.0.1",
+    "chalk": "^5.3.0"
   },
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^17.0.0"
   }
 }

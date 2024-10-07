@@ -1,46 +1,48 @@
 #!/usr/bin/env node
 // 👆 Used to tell Node.js that this is a CLI tool
 
-// Pull in our modules
-const chalk = require('chalk')
-const boxen = require('boxen')
+// Import our modules using ESM syntax
+import chalk from 'chalk';
+import boxen from 'boxen';
 
-// Define options for Boxen
+// Define options for Boxen (box style)
 const options = {
   padding: 1,
-  margin: 1,
   borderStyle: 'round'
-}
+};
 
-// Text + chalk definitions
+// Text + chalk definitions (content of the card)
 const data = {
-  name: chalk.white('Ricardo Gouveia /'),
-  handle: chalk.cyan('ricardogouveia3'),
-  work: chalk.white('Front-end developer & UI/UX designer'),
-  twitter: chalk.cyan('https://twitter.com/ricardogouveia3'),
+  emoji: chalk('👨💻'),
+  name: chalk.bold.cyan.underline('Ricardo Gouveia'),
+  work: chalk.white('Front-end developer'),
+  at: chalk.white('@'),
+  company: chalk.cyan.bold('Thoughtworks'),
+  bluesky: chalk.cyan('https://bsky.app/profile/rcrd.dev'),
   github: chalk.cyan('https://github.com/ricardogouveia3'),
-  linkedin: chalk.cyan('https://linkedin.com/in/ricardogouveia3'),
-  web: chalk.cyan('https://rcrd.me'),
-  npx: chalk.white('npx ricardogouveia3'),
-  labelWork: chalk.white.bold('      Work:'),
-  labelTwitter: chalk.white.bold('   Twitter:'),
-  labelGitHub: chalk.white.bold('    GitHub:'),
-  labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  labelWeb: chalk.white.bold('       Web:'),
-  labelCard: chalk.white.bold('      Card:')
-}
+  portfolio: chalk.cyan('https://rcrd.dev'),
+  npx: chalk.cyan('npx rcrd'),
+  labelWork: chalk.white.bold('Work:'),
+  labelBluesky: chalk.white.bold('BlueSky:'),
+  labelGitHub: chalk.white.bold('GitHub:'),
+  labelPortfolio: chalk.white.bold('Portfolio:'),
+  labelCard: chalk.white.bold('Card:')
+};
 
-// Actual strings we're going to output
-const newline = '\n'
-const heading = `${data.name} ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
+// Actual strings we're going to output (formatted output)
+const newline = '\n';
 
-// Put all our output together into a single variable so we can use boxen effectively
-const output = heading + newline + newline + working + newline + twittering + newline + githubing + newline + linkedining + newline + webing + newline + newline + carding
+const emoji = `${data.emoji}`;
+const heading = `${data.name}`;
+const working = `${data.labelWork} ${data.work} ${data.at} ${data.company}`;
 
-console.log(chalk.green(boxen(output, options)))
+const bluesky = `> ${data.labelBluesky}   ${data.bluesky}`;
+const github = `> ${data.labelGitHub}    ${data.github}`;
+const portfolio = `> ${data.labelPortfolio} ${data.portfolio}`;
+const carding = `${data.labelCard} ${data.npx}`;
+
+// Putting all output together into a single variable
+const output = emoji + newline + heading + newline + newline + working + newline + newline + portfolio + newline + github + newline + bluesky + newline + newline + carding;
+
+// Outputting the final boxed card to the console
+console.log(chalk.cyan(boxen(output, options)));
