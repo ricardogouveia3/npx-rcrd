@@ -1,6 +1,6 @@
 {
   "name": "rcrd",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "A personal CLI card for Ricardo Gouveia",
   "main": "index.js",
   "bin": {
